@@ -1,0 +1,652 @@
+Open Watcom Linker Version 2.0 beta Nov  3 2020 06:08:48 (64-bit)
+Copyright (c) 2002-2020 The Open Watcom Contributors. All Rights Reserved.
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       20/11/11 22:03:50
+Executable Image: dhcp.exe
+creating a DOS executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          0801:0000            00003160
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+BEGTEXT                CODE           AUTO           0000:0000       00000007
+_TEXT                  CODE           AUTO           0000:0010       00007ff3
+FAR_DATA               FAR_DATA       AUTO           0800:0003       00000000
+_NULL                  BEGDATA        DGROUP         0801:0000       00000020
+_AFTERNULL             BEGDATA        DGROUP         0803:0000       00000002
+CONST                  DATA           DGROUP         0803:0002       0000129f
+CONST2                 DATA           DGROUP         092e:0000       00000281
+_DATA                  DATA           DGROUP         0957:0000       000003a1
+XIB                    DATA           DGROUP         0991:0002       00000000
+XI                     DATA           DGROUP         0991:0002       00000024
+XIE                    DATA           DGROUP         0993:0006       00000000
+YIB                    DATA           DGROUP         0993:0006       00000000
+YI                     DATA           DGROUP         0993:0006       00000018
+YIE                    DATA           DGROUP         0994:000e       00000000
+STRINGS                DATA           DGROUP         0994:000e       00000000
+DATA                   DATA           DGROUP         0994:000e       00000000
+_BSS                   BSS            DGROUP         0995:0000       0000081e
+STACK                  STACK          DGROUP         0a17:0000       00001000
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: packet.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/tcplib/packet.cpp)
+0801:196c      char unsigned __near Buffer_first
+0801:196d      char unsigned __near Buffer_next
+0801:1988+     char unsigned __near Buffer_lowFreeCount
+0801:198c+     long unsigned __near Packets_dropped
+0801:1990      long unsigned __near Packets_received
+0801:1994      long unsigned __near Packets_sent
+0801:1998      long unsigned __near Packets_send_errs
+0801:199c+     long unsigned __near Packets_send_retries
+0000:0010      char signed __near Buffer_init()
+0000:0054      void __near Buffer_startReceiving()
+0000:005a      void __near Buffer_free( char unsigned const __near * )
+0000:0082      void __near Buffer_stopReceiving()
+0000:0088      void __near Buffer_stop()
+0000:0092      char signed __near Packet_registerEtherType( short unsigned, void (__near *)())
+0000:00bf*     void __near Packet_registerDefault( void (__near *)())
+0000:0174      char signed __near Packet_init( char unsigned )
+0000:023a      char signed __near Packet_release_type()
+0000:029e      void __near Packet_get_addr( char unsigned __near * )
+0000:02d0      void __near Packet_send_pkt( void __near *, short unsigned )
+0000:037e      void __near Packet_process_internal()
+0000:042b      void __near Packet_dumpStats( __iobuf __near * )
+0000:0469*     char unsigned __near Packet_getSoftwareInt()
+0000:046d*     short unsigned __near Packet_getHandle()
+0801:1560+     char const __near * __near PKT_DRVR_EYE_CATCHER
+0801:19a4+     void (__near * __near Packet_EtherTypeHandler[])( char unsigned __near *, short unsigned )
+0801:19a8+     short unsigned __near Packet_EtherTypeVal[]
+0801:19ac+     char unsigned __near Packet_EtherTypeHandlers
+0801:19ae+     void (__near * __near Packet_typeUnhandled)( char unsigned __near *, short unsigned )
+Module: eth.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/tcplib/eth.cpp)
+0801:12d0      char unsigned const __near Eth::Eth_Broadcast[]
+0801:1562      short unsigned __near MyMTU
+0801:19b0      char unsigned __near MyEthAddr[]
+Module: ip.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/tcplib/ip.cpp)
+0000:0471      void __near Ip::dumpStats( __iobuf __near * )
+0000:049f      void __near Ip::process( char unsigned __near *, short unsigned )
+0000:0561      void __near IpHeader::set( char unsigned, char unsigned const __near *, short unsigned, char unsigned, short unsigned )
+0000:0618      char signed __near IpHeader::setDestEth( char unsigned __near * )
+0801:1570      char __near MyHostname[]
+0801:1584      char unsigned __near MyIpAddr[]
+0801:1588      char unsigned __near Netmask[]
+0801:158c      long unsigned __near MyIpAddr_u
+0801:1590      long unsigned __near Netmask_u
+0801:1594      char unsigned __near IpBroadcast[]
+0801:19c0      char unsigned __near Gateway[]
+0801:19c4*     char unsigned __near IpThisMachine[]
+0801:19c8+     long unsigned __near Ip::icmpRecvPackets
+0801:19cc*     long unsigned __near Ip::ptrWrapCorrected
+0801:19d0+     long unsigned __near Ip::badChecksum
+0801:19d4+     long unsigned __near Ip::unhandledProtocol
+0801:19d8+     long unsigned __near Ip::fragsReceived
+0801:19dc+     short unsigned __near IpHeader::IpIdent
+Module: udp.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/tcplib/udp.cpp)
+0801:19e0+     char unsigned __near Udp::callbackPorts
+0801:19e2+     short unsigned __near Udp::callbackList[]
+0801:19e4+     void (__near * __near Udp::callbackFunctions[])( char unsigned const __near *, UdpHeader const __near * )
+0801:19e8+     long unsigned __near Udp::Packets_Sent
+0801:19ec+     long unsigned __near Udp::Fragments_Sent
+0801:19f0+     long unsigned __near Udp::Packets_Received
+0000:0649      void __near Udp::dumpStats( __iobuf __near * )
+0000:067f      char signed __near Udp::registerCallback( short unsigned, void (__near *)())
+0000:06c8*     char signed __near Udp::unregisterCallback( short unsigned )
+0000:070b      char signed __near Udp::sendUdp( char unsigned __near *, short unsigned, short unsigned, short unsigned, char unsigned __near *, char unsigned )
+0000:0849      void __near Udp::process( char unsigned const __near *, IpHeader __near * )
+0801:19f4+     long unsigned __near Udp::NoHandler
+0801:19f8+     long unsigned __near Udp::ChecksumErrors
+Module: utils.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/tcplib/utils.cpp)
+0801:12e0      char const __near Parm_PacketInt[]
+0801:12f0      char const __near Parm_Hostname[]
+0801:1300      char const __near Parm_IpAddr[]
+0801:1308      char const __near Parm_Gateway[]
+0801:1310      char const __near Parm_Netmask[]
+0801:1318      char const __near Parm_Nameserver[]
+0801:1328      char const __near Parm_Nameserver_preferred[]
+0801:1340      char const __near Parm_Mtu[]
+0801:1a00      char unsigned __near mTCP_releaseTimesliceEnabled
+0801:1a04*     char unsigned __near Preferred_nameserver[]
+0801:1a08*     bool __near Preferred_nameserver_set
+0801:1a09      char unsigned __near Utils::packetInt
+0801:1a0a+     __iobuf __near * __near Utils::CfgFile
+0801:1a0c+     char __near * __near Utils::CfgFilenamePtr
+0801:1a0e+     void (__far * __near Utils::oldCtrlBreakHandler)()
+0801:1a18      char __near Utils::lineBuffer[]
+0801:1ab8      char __near Utils::parmName[]
+0000:08d5      void __near Utils::dumpBytes( __iobuf __near *, char unsigned __near *, int unsigned )
+0000:09a5      bool __near Utils::rtrim( char __near * )
+0000:09ce      int __near Utils::getLine( __iobuf __near *, bool, char __near *, int, int )
+0000:0a41      void __near Utils::parseOptionalEnvVars()
+0000:0aa7*     __iobuf __near * __near Utils::openCfgFile()
+0000:0acf*     void __near Utils::closeCfgFile()
+0000:0ad5*     char signed __near Utils::getAppValue( char const __near *, char __near *, short unsigned )
+0000:0b76      char signed __near Utils::initStack( char unsigned, char unsigned, void (__far *)(), void (__far *)())
+0000:0ce7      void __near Utils::endStack()
+0000:0d30+     void __near Utils::dumpStats( __iobuf __near * )
+0000:0d42*     long unsigned __near Utils::timeDiff( dostime_t, dostime_t )
+0000:0e1d      char __near * __near Utils::getNextToken( char __near *, char __near *, short unsigned )
+0801:1598      char unsigned __near mTCP_sleepCallEnabled
+Module: timer.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/tcplib/timer.cpp)
+0801:1b30      long unsigned volatile __near Timer_CurrentTicks
+0000:0f65+     void __far Timer_tick_handler()
+0000:0f93      void __near Timer_start()
+0000:0fbe      void __near Timer_stop()
+0801:1b36+     void (__far * __near Timer_old_tick_handler)()
+Module: ipasm.obj(IPASM)
+0000:0fda      _ipchksum
+0000:100a      _ip_p_chksum
+0000:107f*     _ip_p_chksum2
+Module: trace.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/tcplib/trace.cpp)
+0000:1115      void __near Trace_beginTracing()
+0000:113d      void __near Trace_endTracing()
+0000:1143      void __near Trace_tprintf( char __near *, ... )
+0801:159a      __iobuf __near * __near Trace_Stream
+0801:159c      char __near Trace_Severity
+0801:1b40      short unsigned __near Trace_Debugging
+0801:1b48      char __near Trace_LogFile[]
+Module: dhcp.obj(/home/mcasadevall/src/mtcp-src_2020-03-07/apps/dhcp/dhcp.cpp)
+0801:1ba0+     __1k4gmaDhcp_t __near req
+0801:1eba+     DhcpStatus_t __near DhcpStatusFlag
+0801:1ebc+     char __near * __near CfgFilename
+0801:1ec0+     char unsigned __near newIpAddr[]
+0801:1ec4+     char unsigned __near subnetMask[]
+0801:1ec8+     char unsigned __near gatewayAddr[]
+0801:1ecc+     char unsigned __near nameServer[]
+0801:1ed0+     char unsigned __near preferredNameServer[]
+0801:15a0+     char unsigned __near Retries
+0801:15a2+     short unsigned __near Timeout
+0801:15a4+     long unsigned __near TimeoutMs
+0801:15a8+     char const __near * __near CheckYourCabling_msg
+0000:11b2+     void __far ctrlBreakHandler()
+0000:11d8+     int __near printIpAddr( __iobuf __near *, char const __near *, char unsigned __near * )
+0000:11fa      main_
+0000:138f+     DhcpStatus_t __near makeAttempt( int )
+0000:149c+     void __near shutdown( int )
+0000:14a7+     void __near printErrno( char const __near * )
+0000:14c8+     char signed __near createNewCfg()
+0000:1724+     char signed __near parseEnv()
+0000:1906+     short unsigned __near setupReqPacket()
+0000:19b2+     void __near udpHandler( char unsigned const __near *, UdpHeader const __near * )
+0000:19bf+     void __near udpHandler2( __1k4gmaDhcp_t __near * )
+0000:1d17+     void __near usage( __iobuf __near * )
+0000:1d1f+     void __near parseArgs( int, char __near * __near * )
+0801:15ac+     char const __near * __near Msg_writing_to_temp_file
+0801:1ed4+     long unsigned __near offeredLeaseTime
+0801:1ed8+     bool __near preferredNameServer_set
+0801:1edc+     char unsigned __near serverIdentity[]
+0801:1ee0+     char unsigned volatile __near CtrlBreakDetected
+Module: /opt/watcom/lib286/dos/clibs.lib(nmalloc.c)
+0000:1e46      _nmalloc_
+0000:1e46      malloc_
+0801:15ae      ___nheapbeg
+0801:15b0      ___MiniHeapRover
+0801:15b2      ___LargestSizeB4MiniHeapRover
+Module: /opt/watcom/lib286/dos/clibs.lib(nfree.c)
+0000:1eff      _nfree_
+0000:1eff      free_
+0801:1ee2+     ___MiniHeapFreeRover
+Module: /opt/watcom/lib286/dos/clibs.lib(fmemcmp.c)
+0000:1fc2      _fmemcmp_
+Module: /opt/watcom/lib286/dos/clibs.lib(intx086.c)
+0000:1fea      int86x_
+0000:208a*     int86_
+Module: /opt/watcom/lib286/dos/clibs.lib(fprintf.c)
+0000:20a8      fprintf_
+Module: /opt/watcom/lib286/dos/clibs.lib(memcpy.c)
+0000:20c8      memcpy_
+Module: /opt/watcom/lib286/dos/clibs.lib(fputs.c)
+0000:20e5      fputs_
+Module: /opt/watcom/lib286/dos/clibs.lib(fgets.c)
+0000:215b      fgets_
+Module: /opt/watcom/lib286/dos/clibs.lib(feof.c)
+0000:21ba      feof_
+Module: /opt/watcom/lib286/dos/clibs.lib(errno.c)
+0000:21c5      __get_errno_ptr_
+0801:1ee4+     _errno
+Module: /opt/watcom/lib286/dos/clibs.lib(strerror.c)
+0000:21c9      strerror_
+0000:21e3*     _strerror_
+0801:15b4+     __sys_errlist
+0801:1606+     __sys_nerr
+Module: /opt/watcom/lib286/dos/clibs.lib(iob.c)
+0801:1608      ___iob
+0801:1fe6      ___OpenStreams
+0801:1fe8      ___ClosedStreams
+Module: /opt/watcom/lib286/dos/clibs.lib(getenv.c)
+0000:229f      getenv_
+Module: /opt/watcom/lib286/dos/clibs.lib(sscanf.c)
+0000:2338+     vsscanf_
+0000:2355      sscanf_
+Module: /opt/watcom/lib286/dos/clibs.lib(atoi.c)
+0000:2375      atoi_
+Module: /opt/watcom/lib286/dos/clibs.lib(strcpy.c)
+0000:23c6      strcpy_
+Module: /opt/watcom/lib286/dos/clibs.lib(fopen.c)
+0000:2405+     __open_flags_
+0000:25a5+     _fsopen_
+0000:25e7      fopen_
+0000:2646*     freopen_
+Module: /opt/watcom/lib286/dos/clibs.lib(fclose.c)
+0000:2689      __doclose_
+0000:2717      __shutdown_stream_
+0000:2728      fclose_
+0801:1fea+     ___RmTmpFileFn
+Module: /opt/watcom/lib286/dos/clibs.lib(fseek.c)
+0000:279e      fseek_
+Module: /opt/watcom/lib286/dos/clibs.lib(stricmp.c)
+0000:28af      stricmp_
+Module: /opt/watcom/lib286/dos/clibs.lib(isspace.c)
+0000:28eb      isspace_
+Module: /opt/watcom/lib286/dos/clibs.lib(strncpy.c)
+0000:290f      strncpy_
+Module: /opt/watcom/lib286/dos/clibs.lib(time.c)
+0000:2938      time_
+Module: /opt/watcom/lib286/dos/clibs.lib(rand.c)
+0000:2971      rand_
+0000:29a3      srand_
+Module: /opt/watcom/lib286/dos/clibs.lib(d_getvec.c)
+0000:29ba      _dos_getvect_
+Module: /opt/watcom/lib286/dos/clibs.lib(d_setvec.c)
+0000:29c5      _dos_setvect_
+Module: /opt/watcom/lib286/dos/clibs.lib(nheapchk.c)
+0000:2ac8*     _nheapchk_
+0000:2ac8      _heapchk_
+0801:1fec+     ___nheapchk_current
+Module: /opt/watcom/lib286/dos/clibs.lib(fflush.c)
+0000:2b29      fflush_
+Module: /opt/watcom/lib286/dos/clibs.lib(i4m.asm)
+0000:2b36      __I4M
+0000:2b36      __U4M
+Module: /opt/watcom/lib286/dos/clibs.lib(strlen.c)
+0000:2b4e      strlen_
+Module: /opt/watcom/lib286/dos/clibs.lib(chainint)
+0000:2b66      _chain_intr_
+Module: /opt/watcom/lib286/dos/clibs.lib(gtime086.asm)
+0000:2b86      _dos_getdate_
+0000:2ba0      _dos_gettime_
+Module: /opt/watcom/lib286/dos/clibs.lib(vfprintf.c)
+0000:2bba      vfprintf_
+Module: /opt/watcom/lib286/dos/clibs.lib(flushall.c)
+0000:2bbd      __flushall_
+0000:2bee      flushall_
+Module: /opt/watcom/lib286/dos/clibs.lib(printf.c)
+0000:2bf3      printf_
+Module: /opt/watcom/lib286/dos/clibs.lib(exit.c)
+0000:2c13+     __null_int23_exit_
+0000:2c14      exit_
+0000:2c25*     _exit_
+0801:1724+     ___int23_exit
+0801:1726+     ___FPE_handler_exit
+Module: /opt/watcom/lib286/dos/clibs.lib(puts.c)
+0000:2c34      puts_
+Module: /opt/watcom/lib286/dos/clibs.lib(bioskeyb.c)
+0000:2c5a      _bios_keybrd_
+Module: /opt/watcom/lib286/dos/clibs.lib(i4d.asm)
+0000:2c5e*     __I4D
+0000:2ca7      __U4D
+Module: /opt/watcom/lib286/dos/clibs.lib(fullpath.c)
+0000:2f57      _fullpath_
+Module: /opt/watcom/lib286/dos/clibs.lib(splitpat.c)
+0000:2fee      _splitpath_
+Module: /opt/watcom/lib286/dos/clibs.lib(makepath.c)
+0000:30b7      _makepath_
+Module: /opt/watcom/lib286/dos/clibs.lib(asctime.c)
+0000:327c+     _asctime_
+0000:332f*     asctime_
+0000:3338*     _ctime_
+0000:3351      ctime_
+Module: /opt/watcom/lib286/dos/clibs.lib(unlnk.c)
+0000:335a      unlink_
+Module: /opt/watcom/lib286/dos/clibs.lib(renam.c)
+0000:3366      rename_
+Module: /opt/watcom/lib286/dos/clibs.lib(cstart)
+0000:0003*     ___begtext
+0801:0000*     __nullarea
+0000:3378      _cstart_
+0000:3522      __exit_
+0000:353f      __do_exit_with_msg_
+0000:3605      __GETDS
+Module: /opt/watcom/lib286/dos/clibs.lib(argcv.c)
+0801:2008      __argc
+0801:200a      __argv
+0801:200c      ___argc
+0801:200e      ___argv
+Module: /opt/watcom/lib286/plibs.lib(fsroot.cpp)
+0801:190e      ___wcpp_4_data_init_fs_root_
+Module: /opt/watcom/lib286/dos/clibs.lib(mem.c)
+0000:3620      __MemAllocator
+0000:36e8      __MemFree
+Module: /opt/watcom/lib286/dos/clibs.lib(nmemneed.c)
+0000:3862      __nmemneed_
+Module: /opt/watcom/lib286/dos/clibs.lib(grownear.c)
+0000:38cb+     __LastFree_
+0000:3932      __ExpandDGROUP_
+Module: /opt/watcom/lib286/dos/clibs.lib(dointr)
+0000:3a06      _DoINTR_
+Module: /opt/watcom/lib286/dos/clibs.lib(segread.c)
+0000:3d7b      segread_
+Module: /opt/watcom/lib286/dos/clibs.lib(fprtf.c)
+0000:3da4      __fprtf_
+Module: /opt/watcom/lib286/dos/clibs.lib(fputc.c)
+0000:3e3b      fputc_
+Module: /opt/watcom/lib286/dos/clibs.lib(flush.c)
+0000:3ee4      __flush_
+Module: /opt/watcom/lib286/dos/clibs.lib(ioalloc.c)
+0000:3fd0      __ioalloc_
+Module: /opt/watcom/lib286/dos/clibs.lib(fgetc.c)
+0000:403c+     __fill_buffer_
+0000:40f1      fgetc_
+Module: /opt/watcom/lib286/dos/clibs.lib(initfile.c)
+0000:4173      __InitFiles_
+Module: /opt/watcom/lib286/dos/clibs.lib(ioexit.c)
+0000:424b*     fcloseall_
+0000:4250      __full_io_exit_
+Module: /opt/watcom/lib286/dos/clibs.lib(environ.c)
+0801:2010      ___env_mask
+0801:2012*     __wenviron
+0801:2014      _environ
+Module: /opt/watcom/lib286/dos/clibs.lib(mbterm.c)
+0000:4258      _mbterm_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbsnextc.c)
+0000:428f      _mbsnextc_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbcupper.c)
+0000:42b9      _mbctoupper_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbsinc.c)
+0000:42cd      _mbsinc_
+Module: /opt/watcom/lib286/dos/clibs.lib(scnf.c)
+0000:4e70      __scnf_
+Module: /opt/watcom/lib286/dos/clibs.lib(istable.c)
+0801:13e0      __IsTable
+Module: /opt/watcom/lib286/dos/clibs.lib(comtflag.c)
+0801:1728      __commode
+Module: /opt/watcom/lib286/dos/clibs.lib(textmode.c)
+0801:172a      __fmode
+Module: /opt/watcom/lib286/dos/clibs.lib(tolower.c)
+0000:503d      tolower_
+Module: /opt/watcom/lib286/dos/clibs.lib(open.c)
+0000:5202*     open_
+0000:5221      sopen_
+Module: /opt/watcom/lib286/dos/clibs.lib(chktty.c)
+0000:5246      __chktty_
+Module: /opt/watcom/lib286/dos/clibs.lib(freefp.c)
+0000:526b      __freefp_
+0000:528f      __purgefp_
+Module: /opt/watcom/lib286/dos/clibs.lib(allocfp.c)
+0000:52a6      __allocfp_
+Module: /opt/watcom/lib286/dos/clibs.lib(__lseek.c)
+0000:5332      __lseek_
+Module: /opt/watcom/lib286/dos/clibs.lib(_clse.c)
+0000:536a      __close_
+Module: /opt/watcom/lib286/dos/clibs.lib(lseek.c)
+0000:539c      lseek_
+Module: /opt/watcom/lib286/dos/clibs.lib(tell.c)
+0000:53c7      tell_
+Module: /opt/watcom/lib286/dos/clibs.lib(gtctm.c)
+0000:53d6      __getctime_
+Module: /opt/watcom/lib286/dos/clibs.lib(mktime.c)
+0000:545f      mktime_
+Module: /opt/watcom/lib286/dos/clibs.lib(nheapwal.c)
+0000:54fa*     _heapwalk_
+0000:54fa*     _nheapwalk_
+0000:5504      __NHeapWalk_
+Module: /opt/watcom/lib286/dos/clibs.lib(initrtns.c)
+0000:55c0*     __FInitRtns
+0000:55c4      __InitRtns
+0000:561b*     __FFiniRtns
+0000:561f      __FiniRtns
+Module: /opt/watcom/lib286/dos/clibs.lib(func086.asm)
+0000:567e*     __ibm_bios_equiplist_
+0000:5681      __ibm_bios_keybrd_
+0000:5696*     __ibm_bios_memsize_
+0000:5699*     __ibm_bios_printer_
+0000:56a4*     __ibm_bios_serialcom_
+Module: /opt/watcom/lib286/dos/clibs.lib(stk086.asm)
+0000:56b1      __STK
+0000:56c8*     __STKOVERFLOW_
+Module: /opt/watcom/lib286/dos/clibs.lib(_getdcwd.c)
+0000:56e3      __getdcwd_
+Module: /opt/watcom/lib286/dos/clibs.lib(gtcwd.c)
+0000:56ef      getcwd_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbsnccnt.c)
+0000:5772      _mbsnccnt_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbsncpy.c)
+0000:579a      _mbsncpy_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbsnbcnt.c)
+0000:57b6      _mbsnbcnt_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbconv.c)
+0000:581c      _mbvtop_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbclen.c)
+0000:5831      _mbclen_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbsdec.c)
+0000:5855      _mbsdec_
+Module: /opt/watcom/lib286/dos/clibs.lib(localtim.c)
+0000:58da      _localtime_
+0000:5944      localtime_
+Module: /opt/watcom/lib286/dos/clibs.lib(error086.asm)
+0000:594e      __doserror_
+0000:595a      __doserror1_
+Module: /opt/watcom/lib286/dos/clibs.lib(xmsg.c)
+0000:5964*     __exit_with_msg_
+0000:5967      __fatal_runtime_error_
+Module: /opt/watcom/lib286/dos/clibs.lib(cmain086.c)
+0000:597e      __CMain
+Module: /opt/watcom/lib286/dos/clibs.lib(crwdata)
+0801:172e      __curbrk
+0801:1736      __STACKLOW
+0801:1738      __STACKTOP
+0801:173a      __cbyte
+0801:173c      __child
+0801:173e      __no87
+0801:174b      ___FPE_handler
+0801:1730      __psp
+0801:173f      __get_ovl_stack
+0801:1743      __restore_ovl_stack
+0801:1747      __close_ovl_file
+0801:174f      __LpCmdLine
+0801:1753      __LpPgmName
+0801:1732      __osmajor
+0801:1733      __osminor
+0801:1734      __osmode
+0801:1735      __HShift
+Module: /opt/watcom/lib286/dos/clibs.lib(uselfn.c)
+0801:1758      ___uselfn
+Module: /opt/watcom/lib286/dos/clibs.lib(initargv.c)
+0000:5af1      __Init_Argv_
+0000:5b22      __Fini_Argv_
+Module: /opt/watcom/lib286/plibs.lib(cppdata.cpp)
+0801:202a      __wint_thread_data
+0801:203c*     __compiled_under_generic
+Module: /opt/watcom/lib286/dos/clibs.lib(amblksiz.c)
+0801:175a      __amblksiz
+Module: /opt/watcom/lib286/dos/clibs.lib(heapen.c)
+0801:175c      ___heap_enabled
+Module: /opt/watcom/lib286/dos/clibs.lib(sbrk.c)
+0000:5b2d      __brk_
+0000:5b81*     sbrk_
+Module: /opt/watcom/lib286/dos/clibs.lib(prtf.c)
+0000:64cc      __prtf_
+Module: /opt/watcom/lib286/dos/clibs.lib(qwrit.c)
+0000:66eb      __qwrite_
+Module: /opt/watcom/lib286/dos/clibs.lib(fsync.c)
+0000:6744      fsync_
+Module: /opt/watcom/lib286/dos/clibs.lib(gtche.c)
+0000:6747      getche_
+Module: /opt/watcom/lib286/dos/clibs.lib(qread.c)
+0000:675c      __qread_
+Module: /opt/watcom/lib286/dos/clibs.lib(setenvp.c)
+0000:6772      __setenvp_
+0000:6819      __freeenvp_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbisdbcs.c)
+0801:175e      ___IsDBCS
+Module: /opt/watcom/lib286/dos/clibs.lib(mbislead.c)
+0000:683e*     _ismbblead_
+0801:2040      ___MBCSIsTable
+Module: /opt/watcom/lib286/dos/clibs.lib(mbinit.c)
+0000:68b0      __mbinit_
+0801:1760      ___MBCodePage
+Module: /opt/watcom/lib286/dos/clibs.lib(mbdtoupp.c)
+0000:6917      _mbdtoupper_
+Module: /opt/watcom/lib286/dos/clibs.lib(toupper.c)
+0000:6925      toupper_
+Module: /opt/watcom/lib286/dos/clibs.lib(mbtowc.c)
+0000:6933      mbtowc_
+Module: /opt/watcom/lib286/dos/clibs.lib(bits.c)
+0801:14f0      __Bits
+Module: /opt/watcom/lib286/dos/clibs.lib(noefgfmt.c)
+0801:1762      ___EFG_printf
+0801:1764      ___EFG_scanf
+Module: /opt/watcom/lib286/dos/clibs.lib(fdfs086.asm)
+0000:69dc      __FDFS
+Module: /opt/watcom/lib286/dos/clibs.lib(i8m086.asm)
+0000:6a3e*     __I8M
+0000:6a3e      __U8M
+0000:6a24*     __I8ME
+0000:6a24*     __U8ME
+Module: /opt/watcom/lib286/dos/clibs.lib(opendos.c)
+0000:6b88      _dos_open_
+Module: /opt/watcom/lib286/dos/clibs.lib(iomode.c)
+0000:6b9c      __GetIOMode_
+0000:6bb3      __SetIOMode_nogrow_
+0801:1766      ___NFiles
+0801:1768      ___init_mode
+0801:1790      ___io_mode
+Module: /opt/watcom/lib286/dos/clibs.lib(isatt.c)
+0000:6bc8      isatty_
+Module: /opt/watcom/lib286/dos/clibs.lib(dosret.c)
+0000:6be4*     __dosretax
+0000:6be9*     __dosret0
+0000:6bf0      __set_errno_dos_
+0000:6c50*     __set_errno_dos_reterr_
+Module: /opt/watcom/lib286/dos/clibs.lib(doserrno.c)
+0000:6c5a      __get_doserrno_ptr_
+0801:2142+     __doserrno
+Module: /opt/watcom/lib286/dos/clibs.lib(umaskval.c)
+0801:17a6      ___umaskval
+Module: /opt/watcom/lib286/dos/clibs.lib(creatdos.c)
+0000:6c5e      _dos_creat_
+0000:6c70*     _dos_creatnew_
+Module: /opt/watcom/lib286/dos/clibs.lib(stiomode.c)
+0000:6c82+     __grow_iomode_
+0000:6d09+     __shrink_iomode_
+0000:6d22      __SetIOMode_
+Module: /opt/watcom/lib286/dos/clibs.lib(locmktim.c)
+0000:6d73      __local_mktime_
+Module: /opt/watcom/lib286/dos/clibs.lib(gmtime.c)
+0000:6f4d      __brktime_
+0000:7080+     _gmtime_
+0000:70a3*     gmtime_
+Module: /opt/watcom/lib286/dos/clibs.lib(tzset.c)
+0801:17a8      ___start_dst
+0801:17ba      ___end_dst
+0801:18ce*     _tzname
+0801:18d2      _timezone
+0801:18d6      _daylight
+0801:18d8      ___dst_adjust
+0000:70ac*     __DontCacheOSTZ_
+0000:70c0*     __CacheOSTZ_
+0000:751d+     __parse_tz_
+0000:7630      tzset_
+Module: /opt/watcom/lib286/dos/clibs.lib(timeutil.c)
+0000:7748      __isindst_
+Module: /opt/watcom/lib286/dos/clibs.lib(sgdef086)
+0801:1902      __Start_XI
+0801:1926      __End_XI
+0801:1926      __Start_YI
+0801:193e      __End_YI
+Module: /opt/watcom/lib286/dos/clibs.lib(mbsnbcpy.c)
+0000:79bd      _mbsnbcpy_
+Module: /opt/watcom/lib286/dos/clibs.lib(enterdb.c)
+0000:7a20      __EnterWVIDEO_
+0801:1900+     ___WD_Present
+Module: /opt/watcom/lib286/dos/clibs.lib(___argc.c)
+0801:2158      ____Argc
+0801:215a      ____Argv
+Module: /opt/watcom/lib286/dos/clibs.lib(histsplt.c)
+0801:215c      ___historical_splitparms
+Module: /opt/watcom/lib286/dos/clibs.lib(wctomb.c)
+0000:7a3c      wctomb_
+Module: /opt/watcom/lib286/dos/clibs.lib(itoa.c)
+0000:7a59+     utoa_
+0000:7a9e      itoa_
+Module: /opt/watcom/lib286/dos/clibs.lib(strupr.c)
+0000:7ab9      strupr_
+Module: /opt/watcom/lib286/dos/clibs.lib(lltoa.c)
+0000:7ad9      ulltoa_
+0000:7b9d*     lltoa_
+Module: /opt/watcom/lib286/dos/clibs.lib(ltoa.c)
+0000:7bf0      ultoa_
+0000:7c43*     ltoa_
+Module: /opt/watcom/lib286/dos/clibs.lib(filedos.c)
+0000:7c63*     _dos_close_
+0000:7c6f      _dos_commit_
+Module: /opt/watcom/lib286/dos/clibs.lib(clearenv.c)
+0000:7c7c      clearenv_
+Module: /opt/watcom/lib286/dos/clibs.lib(getltdos.c)
+0000:7ceb      dos_get_dbcs_lead_table_
+Module: /opt/watcom/lib286/dos/clibs.lib(getcpdos.c)
+0000:7d14      dos_get_code_page_
+Module: /opt/watcom/lib286/dos/clibs.lib(nrealloc.c)
+0000:7d24*     _nrealloc_
+0000:7d24      realloc_
+Module: /opt/watcom/lib286/dos/clibs.lib(iomodtty.c)
+0000:7d90      __ChkTTYIOMode_
+0000:7dc2*     __IOMode_
+Module: /opt/watcom/lib286/dos/clibs.lib(leapyear.c)
+0000:7dcf      __leapyear_
+0801:14f8      ___diyr
+0801:1512      ___dilyr
+Module: /opt/watcom/lib286/dos/clibs.lib(alphabet.c)
+0801:152c      ___Alphabet
+Module: /opt/watcom/lib286/dos/clibs.lib(nmsize.c)
+0000:7df9*     _msize_
+0000:7df9      _nmsize_
+Module: /opt/watcom/lib286/dos/clibs.lib(nexpand.c)
+0000:7e08      _nexpand_
+0000:7e08*     _expand_
+Module: /opt/watcom/lib286/dos/clibs.lib(_expand.c)
+0000:7e53      __HeapManager_expand_
+Module: /opt/watcom/lib286/dos/clibs.lib(bfree.c)
+0000:7fe2      _bfree_
+
+
+                        +--------------------+
+                        |   Libraries Used   |
+                        +--------------------+
+
+/opt/watcom/lib286/plibs.lib
+/opt/watcom/lib286/dos/clibs.lib
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  1000 (4096.)
+Memory size:  b170 (45424.)
+Entry point address: 0000:3378
+Link time: 00:00.44
